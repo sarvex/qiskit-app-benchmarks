@@ -67,8 +67,7 @@ class VqcBaseClassifierBenchmark(BaseClassifierBenchmark, ABC):
 
         initial_point = algorithm_globals.random.random(ansatz.num_parameters)
 
-        # construct variational quantum classifier
-        model = VQC(
+        return VQC(
             feature_map=feature_map,
             ansatz=ansatz,
             loss=loss_function,
@@ -76,5 +75,3 @@ class VqcBaseClassifierBenchmark(BaseClassifierBenchmark, ABC):
             quantum_instance=self.backends[quantum_instance_name],
             initial_point=initial_point,
         )
-
-        return model

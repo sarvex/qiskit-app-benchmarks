@@ -123,7 +123,7 @@ if __name__ == "__main__":
         ARGS = PARSER.parse_args()
         _send_notification(ARGS.key, ARGS.encryptedfile, ARGS.logfile)
     except Exception as ex:  # pylint: disable=broad-except
-        print(str(ex))
+        print(ex)
         STATUS = 1
 
     sys.exit(STATUS)

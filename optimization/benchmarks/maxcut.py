@@ -55,8 +55,7 @@ class MaxcutBenchmarks:
     def _generate_qubo(maxcut: Maxcut):
         q_p = maxcut.to_quadratic_program()
         conv = QuadraticProgramToQubo()
-        qubo = conv.convert(q_p)
-        return qubo
+        return conv.convert(q_p)
 
     def time_generate_qubo(self, _, __):
         """generate time qubo"""

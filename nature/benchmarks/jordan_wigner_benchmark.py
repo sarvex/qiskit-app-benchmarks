@@ -70,7 +70,7 @@ class JordanWignerMapperBenchmarks:
     def make_hdf5_file():
         """create hdf5 files"""
 
-        for _, (atom, file_name) in enumerate(JordanWignerMapperBenchmarks._hdf5_files):
+        for atom, file_name in JordanWignerMapperBenchmarks._hdf5_files:
             _driver = PySCFDriver(
                 atom=atom,
                 unit=DistanceUnit.ANGSTROM,
@@ -93,9 +93,7 @@ class JordanWignerMapperBenchmarks:
             _problem = qcschema_to_problem(_qcschema)
             hamil, aux_ops = _problem.second_q_ops()
             second_q_ops_list.append(hamil)
-            for _, item in sorted(aux_ops.items()):
-                second_q_ops_list.append(item)
-
+            second_q_ops_list.extend(item for _, item in sorted(aux_ops.items()))
         return second_q_ops_list
 
     def setup(self, second_q_ops_list, operator):

@@ -35,7 +35,7 @@ class LinearMapperBenchmarks:
         """setup cache"""
 
         second_q_ops_list = []
-        edge_arr = list((n**11) % 100 for n in range(100))
+        edge_arr = [(n**11) % 100 for n in range(100)]
 
         for index, _ in enumerate(self.params):
             graph = rustworkx.PyGraph(multigraph=False)

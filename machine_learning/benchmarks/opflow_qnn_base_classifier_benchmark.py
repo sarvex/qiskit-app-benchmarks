@@ -60,7 +60,6 @@ class OpflowQnnBaseClassifierBenchmark(BaseClassifierBenchmark, ABC):
         )
 
         initial_point = algorithm_globals.random.random(ansatz.num_parameters)
-        model = NeuralNetworkClassifier(
+        return NeuralNetworkClassifier(
             opflow_qnn, optimizer=optimizer, initial_point=initial_point
         )
-        return model

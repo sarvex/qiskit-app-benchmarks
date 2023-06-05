@@ -87,7 +87,8 @@ class CircuitQnnBaseClassifierBenchmark(BaseClassifierBenchmark, ABC):
             quantum_instance=self.backends[quantum_instance_name],
         )
         initial_point = algorithm_globals.random.random(ansatz.num_parameters)
-        model = NeuralNetworkClassifier(
-            neural_network=circuit_qnn, optimizer=optimizer, initial_point=initial_point
+        return NeuralNetworkClassifier(
+            neural_network=circuit_qnn,
+            optimizer=optimizer,
+            initial_point=initial_point,
         )
-        return model

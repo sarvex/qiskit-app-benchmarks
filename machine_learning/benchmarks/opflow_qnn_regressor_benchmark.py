@@ -104,14 +104,12 @@ class OpflowQnnRegressorBenchmarks(BaseRegressorBenchmark):
     def track_mae_opflow_qnn_regressor(self, _, __):
         """Mean absolute error of the model on data."""
         predicts = self.model.predict(self.test_features)
-        mae = mean_absolute_error(y_true=self.test_labels, y_pred=predicts)
-        return mae
+        return mean_absolute_error(y_true=self.test_labels, y_pred=predicts)
 
     def track_mse_opflow_qnn_regressor(self, _, __):
         """Mean squared error of the model on data."""
         predicts = self.model.predict(self.test_features)
-        mse = mean_squared_error(y_true=self.test_labels, y_pred=predicts)
-        return mse
+        return mean_squared_error(y_true=self.test_labels, y_pred=predicts)
 
 
 if __name__ == "__main__":

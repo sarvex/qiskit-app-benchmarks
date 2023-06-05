@@ -42,7 +42,7 @@ class VersionChecker:
                 continue
 
             # Iterate through the modules
-            fullname = package + "." + name
+            fullname = f"{package}.{name}"
             modspec = importlib.util.find_spec(fullname)  # type: ignore[attr-defined]
             mod = importlib.util.module_from_spec(modspec)  # type: ignore[attr-defined]
             modspec.loader.exec_module(mod)
@@ -64,7 +64,7 @@ class VersionChecker:
                 "__pycache__",
                 ".asv",
             ] and os.path.isdir(full_path):
-                ret = self._check(full_path, package + "." + item)
+                ret = self._check(full_path, f"{package}.{item}")
                 if ret != 0:
                     ret_code = ret
 

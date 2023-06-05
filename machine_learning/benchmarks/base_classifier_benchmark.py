@@ -117,9 +117,9 @@ class BaseClassifierBenchmark(ABC):
         size = 25
         iris_features = np.zeros((size, 4))
         iris_labels = np.zeros(size)
+        # there are 50 samples of each class, three classes, but we sample only two!
+        num_samples = 50
         for i in range(size):
-            # there are 50 samples of each class, three classes, but we sample only two!
-            num_samples = 50
             index = num_samples * (i % num_classes) + i
             iris_features[i, :] = iris_features_all[index]
             iris_labels[i] = iris_labels_all[index]
